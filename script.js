@@ -6,7 +6,7 @@ navToggle.addEventListener("click", () => {
 
   const navOpened = navToggle.getAttribute("aria-expanded");
 
-  if (navOpened === 'false') {
+  if (navOpened === "false") {
     navToggle.setAttribute("aria-expanded", "true");
   } else {
     navToggle.setAttribute("aria-expanded", "false");
@@ -14,3 +14,13 @@ navToggle.addEventListener("click", () => {
 
   console.log(navOpened);
 });
+
+const resizeObserver = new ResizeObserver(() => {
+  document.body.classList.add("resizing");
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove("resizing");
+  });
+});
+
+resizeObserver.observe(document.body);
